@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="User Login" 
+		implements="com.webfreshener.core.view.IPassivelyMediated">
+	<fx:Script>
+		<![CDATA[
+			import com.ifancam.iFanCamApp.mediators.LoginSelectMediator;
+			
+			public function get mediatorClass():Class
+			{
+				return LoginSelectMediator;
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<!--
+	<s:Group>
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+
+		<s:Button skinClass="com.ifancam.iFanCamApp.skins.LoginButtonSkin" id="loginBttn" label="Login"/>
+		<s:Button skinClass="com.ifancam.iFanCamApp.skins.FacebookLoginButtonSkin" id="facebookLoginBttn" label="Facebook"/>
+		<s:Button skinClass="com.ifancam.iFanCamApp.skins.TwitterLoginButtonSkin" id="twitterLoginBttn" label="Twitter"/>
+		<s:Button skinClass="com.ifancam.iFanCamApp.skins.RegistrationButtonSkin" id="registrationBttn" label="Register"/>
+
+	</s:Group>
+	-->
+
+	
+	<s:VGroup top="0" bottom="0" left="0" right="0" paddingTop="10">
+		<s:Button id="loginBttn" width="100%" left="0" right="0" label="Login"/>
+		<s:Button id="facebookLoginBttn" width="100%" left="0" right="0" label="Facebook"/>
+		<s:Button id="twitterLoginBttn" width="100%" left="0" right="0" label="Twitter"/>
+		<s:Button id="registrationBttn" width="100%" left="0" right="0" label="Register"/>		
+	</s:VGroup>
+
+
+
+</s:View>

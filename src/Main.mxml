@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" firstView="views.LoginSelectView" applicationDPI="320" 
+							applicationComplete="viewnavigatorapplication1_applicationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected var _facade:ApplicationFacade = ApplicationFacade.getInstance( ApplicationFacade.NAME );
+			
+			protected function viewnavigatorapplication1_applicationCompleteHandler(event:FlexEvent):void
+			{
+				_facade.startup( this );
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+
+</s:ViewNavigatorApplication>

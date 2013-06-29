@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Sign-In" xmlns:vo="com.ifancam.iFanCamApp.vo.*">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<vo:LoginVO id="loginVO" email="{email.text}" password="{password.text}"/>
+	</fx:Declarations>
+	
+	<s:VGroup>
+		<s:TextInput id="email" skinClass="spark.skins.mobile.TextInputSkin" prompt="Email Address" width="100%"/>
+		<s:TextInput id="password" skinClass="spark.skins.mobile.TextInputSkin" prompt="Password" width="100%" displayAsPassword="true" />
+	</s:VGroup>
+</s:View>
