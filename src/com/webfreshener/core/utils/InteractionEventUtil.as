@@ -53,6 +53,7 @@ package com.webfreshener.core.utils
 		public static function addEventHandler(uiElement:IEventDispatcher, eventName:String, callBack:Function, useCapture:Boolean=false, priority:int=0, useWeakReference:Boolean=true):void
 		{
 		  var tEvent:String;
+		  trace("Multitouch.supportsTouchEvents: "+Multitouch.supportsTouchEvents);
 		  if (Multitouch.supportsTouchEvents)
 		  {
 			  tEvent = lookUpTouchEvent(eventName);

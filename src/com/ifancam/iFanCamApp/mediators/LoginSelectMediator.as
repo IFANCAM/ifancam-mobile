@@ -1,10 +1,10 @@
 package com.ifancam.iFanCamApp.mediators
 {
+	import com.ifancam.iFanCamApp.proxies.FacebookProxy;
 	import com.ifancam.iFanCamApp.vo.NavigationNoteVO;
 	import com.webfreshener.core.utils.InteractionEventUtil;
 	
-	import flash.events.MouseEvent;
-	import flash.events.TouchEvent;
+	import flash.events.Event;
 	
 	import org.puremvc.as3.multicore.patterns.mediator.Mediator;
 	
@@ -22,23 +22,24 @@ package com.ifancam.iFanCamApp.mediators
 		override public function onRegister():void
 		{
 			super.onRegister()
-			trace("LoginSelectMediator registered");
-			view.loginBttn.addEventListener(TouchEvent.TOUCH_END, onLoginTouched, false, 0, true);
-			view.loginBttn.addEventListener(MouseEvent.CLICK, onLoginClicked, false, 0, true);
+			InteractionEventUtil.addEventHandler( view.loginBttn, InteractionEventUtil.INTERACTION_CLICK, showSignIn);
+			InteractionEventUtil.addEventHandler( view.facebookLoginBttn, InteractionEventUtil.INTERACTION_CLICK, doFacebookLogin);
+			InteractionEventUtil.addEventHandler( view.twitterLoginBttn, InteractionEventUtil.INTERACTION_CLICK, doTwitterLogin);
 		}
 		
-		protected function onLoginClicked(event:MouseEvent):void
+		public function doFacebookLogin(event:Event):void
 		{
-			showSignIn()
+			var proxy:FacebookProxy
+			this.facade.registerProxy( proxy = new FacebookProxy );
+//			proxy.login();
 		}
 		
-		protected function onLoginTouched(event:TouchEvent):void
+		public function doTwitterLogin(event:Event):void
 		{
-			showSignIn();
+			
 		}
-		
-		
-		public function showSignIn():void
+
+		public function showSignIn(event:Event):void
 		{
 			var navNote:NavigationNoteVO = new NavigationNoteVO;
 			navNote.viewCLass = views.SignInView;

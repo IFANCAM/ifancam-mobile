@@ -3,6 +3,8 @@ package
 	import com.ifancam.iFanCamApp.commands.ShutdownCommand;
 	import com.ifancam.iFanCamApp.commands.StartupCommand;
 	import com.ifancam.iFanCamApp.mediators.ApplicationMediator;
+	import com.webfreshener.core.types.InteractionMode;
+	import com.webfreshener.core.utils.InteractionEventUtil;
 	
 	import spark.components.Application;
 	
@@ -25,7 +27,11 @@ package
 		
 		
 		//-- enable/disable trace output
-		public static var DEBUG:Boolean							= false;
+		public static var DEBUG:Boolean							= true;
+		
+		
+		public static const FACEBOOK_APP_KEY:String				= "672518372774372";
+		public static const FACEBOOK_APP_SECRET:String			= "c2492eb79ec17fb026574037d73ea356";
 	
 		/*
 		*
@@ -160,6 +166,8 @@ package
 		 */		
 		public function startup(application:Application):void
 		{
+			if (DEBUG)
+				InteractionEventUtil.MODE = InteractionMode.DUAL;
 			this.sendNotification(STARTUP, application);
 			this.registerMediator( new ApplicationMediator( application ) );
 		}
